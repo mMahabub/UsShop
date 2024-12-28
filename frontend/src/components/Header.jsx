@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
+import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,12 @@ import { useSelector } from 'react-redux';
 
 function Header() {
 
-  const { cartItems}  = useSelector((state) => state.cart)
+  const { cartItems}  = useSelector((state) => state.cart);
+  const { userInfo}  = useSelector((state) => state.auth);
+
+  const logoutHandler =() => {
+    console.log('logout')
+  }
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -30,9 +36,26 @@ function Header() {
                 
                 }
               </Nav.Link>
-              <Nav.Link as={Link} to="/login">
-                <FaUser /> Sign In
-              </Nav.Link>
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id='username'>
+                  <Nav.Link to='/profile'>
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </Nav.Link>
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    logout
+
+                  </NavDropdown.Item>
+
+                </NavDropdown>
+              ) : (
+                  <Nav.Link to='/login' >
+                  <Nav.Link as={Link} to='/login'>
+                   <FaUser /> Sign In
+                 </Nav.Link>
+                 </Nav.Link>
+              ) }
+            
+             
             </Nav>
           </Navbar.Collapse>
         </Container>
