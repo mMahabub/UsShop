@@ -13,10 +13,10 @@ const App = () => {
     <>
     
       <Header />
-      <main className="py-3">
-        <Container>
+      <main className="">
+        {/* <Container> */}
           <Outlet />
-        </Container>
+        {/* </Container> */}
       </main>
       <Footer />
       <ToastContainer/>
