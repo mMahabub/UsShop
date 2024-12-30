@@ -111,7 +111,7 @@ const ShippingScreen = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-700 via-teal-800 to-black px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-black to-gray-900  to-black px-4">
       <div className="bg-white shadow-2xl rounded-lg p-8 max-w-md w-full animate-fade-in">
         <h1 className="text-3xl font-bold text-teal-700 text-center mb-6">Shipping Details</h1>
         <CheckoutSteps step1 step2 />
