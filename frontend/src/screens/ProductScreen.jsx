@@ -11,6 +11,7 @@ import Rating from '../components/Rating';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { addToCart } from '../slices/cartSlice';
+import  Meta  from '../components/Meta';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -59,6 +60,7 @@ const ProductScreen = () => {
 
   return (
     <div className="bg-gradient-to-br from-teal-500 via-blue-500 to-cyan-600 min-h-screen p-6">
+         {product && <Meta title={product.name} />}
       <Link
         className="px-4 py-2 bg-white text-teal-600 rounded-md shadow-md hover:scale-105 transition-transform"
         to="/"
@@ -70,9 +72,12 @@ const ProductScreen = () => {
       ) : error ? (
         <Message variant="danger">{error?.data?.message || error.error}</Message>
       ) : (
+      
+      
         <div className="mt-6">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="rounded-lg shadow-md bg-white p-6">
+             
               <img
                 src={product.image}
                 alt={product.name}

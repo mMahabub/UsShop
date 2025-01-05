@@ -36,6 +36,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import { BASE_URL, UPLOAD_URL } from '../constant.js';
 
 const Rating = ({ value, text }) => {
   const stars = Array.from({ length: 5 }, (_, index) => {
@@ -59,10 +60,10 @@ const Product = ({ product }) => {
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Image */}
       <Link to={`/product/${product._id}`}>
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-64 object-cover"
+      <img
+          src={`${ BASE_URL}${product.image}`} // Correctly prefix image URL
+          alt={product.image}
+          className="product-img"
         />
       </Link>
 

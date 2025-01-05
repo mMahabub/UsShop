@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../slices/authSlice';
 import { useLogoutMutation } from '../slices/usersApiSlice';
+import SearchBox from './SearchBox';
 import logo from '../assets/logo.png';
 
 function Header() {
@@ -36,13 +37,17 @@ function Header() {
 
         {/* Navigation */}
         <nav className="flex items-center space-x-6">
+        <SearchBox/>
           {/* Cart */}
           <Link
+          
             to="/cart"
+            
             className="relative text-white hover:text-gray-300 flex items-center space-x-1"
           >
             <FaShoppingCart className="text-xl" />
             <span>Cart</span>
+          
             {cartItems.length > 0 && (
               <span className="absolute -top-2 -right-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                 {cartItems.reduce((a, c) => a + c.qty, 0)}
