@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../slices/authSlice';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import SearchBox from './SearchBox';
-import logo from '../assets/logo.png';
+import logo3 from '../assets/logo3.jpg';
 
 function Header() {
   const { cartItems } = useSelector((state) => state.cart);
@@ -30,10 +30,15 @@ function Header() {
     <header className="bg-gray-800 shadow-md">
       <div className="container mx-auto px-7 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <img src={logo} alt="UsShop" className="h-8" />
-          <span className="text-white text-2xl font-bold">UsShop</span>
-        </Link>
+        <Link to="/" className="flex items-center">
+  <div className="relative">
+    <img src={logo3} alt="UsShop" className="h-8" />
+    <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl font-bold">
+      S
+    </span>
+  </div>
+  <span className="text-white text-2xl font-bold ml-2">Shop</span>
+</Link>
 
         {/* Navigation */}
         <nav className="flex items-center space-x-6">
