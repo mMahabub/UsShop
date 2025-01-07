@@ -7,12 +7,13 @@ export default {
   theme: {
     extend: {
       animation: {
-        slide: 'slide 20s linear infinite',
+        'gradient-x': 'gradient-x 5s ease infinite',
       },
       keyframes: {
-        slide: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
+        'gradient-x': {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
         },
       },
     },

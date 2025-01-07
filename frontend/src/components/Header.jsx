@@ -27,7 +27,7 @@ function Header() {
   };
 
   return (
-    <header className="bg-gray-800 shadow-md">
+    <header className="bg-gradient-to-r from-cyan-900 via-sky-900 to-blue-950 shadow-md">
       <div className="container mx-auto px-7 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">

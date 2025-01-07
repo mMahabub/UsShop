@@ -34,7 +34,7 @@ const ProductCarousel = () => {
   return isLoading ? null : error ? (
     <Message variant="danger">{error?.data?.message || error.error}</Message>
   ) : products && products.length > 0 ? ( // Safe check for 'products'
-    <div className="relative w-full h-[400px] flex justify-center items-center bg-teal-800 overflow-hidden">
+    <div className="relative w-full h-[400px] flex justify-center items-center bg-slate-800 overflow-hidden">
       {/* Left Arrow */}
       <button
         onClick={handlePrev}
@@ -63,9 +63,12 @@ const ProductCarousel = () => {
                   alt={product.name}
                   className="w-full h-[250px] object-cover" // Wider image
                 />
-                <div className="p-4 bg-gray-900 text-white text-center">
-                  <h2 className="text-lg font-semibold">{product.name}</h2>
-                  <p className="text-lg">${product.price}</p>
+                <div className="p-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white text-center">
+                  <h2 className="text-2xl font-bold">{product.name}</h2>
+                  <p className="text-lg font-semibold mt-2">${product.price}</p>
+                  <button className="mt-4 px-6 py-2 bg-cyan-800 hover:bg-teal-600 text-white font-medium rounded-lg transition-all">
+                    View Product
+                  </button>
                 </div>
               </div>
             </Link>
